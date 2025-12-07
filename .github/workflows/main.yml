@@ -1,6 +1,7 @@
 # Файл main.yml
 # Имя workflow
 name: Main Taski Workflow
+
 # Перечень событий-триггеров, при которых должен запускаться workflow
 on:
   # Событие push возникает,
@@ -9,6 +10,7 @@ on:
     # Отслеживаем изменения только в ветке main
     branches:
       - main
+
 # Перечень задач
 jobs:
   # Единственная задача — склонировать код 
@@ -20,7 +22,8 @@ jobs:
       # их можно использовать в своих workflow.
       # Применим готовое описание шага для получения исходного кода
       - name: Check out repository code  # Имя шага задаём сами
-        uses: actions/checkout@v3  # Берём готовое решение из библиотеки GitHub Actions
+        uses: actions/checkout@v4  # Обновили до v4
+
       # Выполняем команду tree в текущей директории
       - name: Print project tree
         run: tree .
